@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио</title>
+    <style>
+        /* Основной стиль */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #444;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .project img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project h3 {
+            margin: 10px;
+            font-size: 1.5em;
+        }
+
+        .project p {
+            margin: 10px;
+        }
+
+        .project a {
+            display: inline-block;
+            margin: 10px;
+            text-decoration: none;
+            color: #fff;
+            background: #007BFF;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact a {
+            display: inline-block;
+            margin: 10px;
+            text-decoration: none;
+            color: #fff;
+            background: #007BFF;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .contact a:hover {
+            background: #0056b3;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .skill {
+            background: #007BFF;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 1em;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: #ddd;
+            transform: translateX(-50%);
+        }
+
+        .timeline-event {
+            position: relative;
+            width: 50%;
+            padding: 10px 20px;
+            background: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-event.left {
+            left: 0;
+        }
+
+        .timeline-event.right {
+            left: 50%;
+        }
+
+        .timeline-event::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            right: -8px;
+            width: 16px;
+            height: 16px;
+            background: #007BFF;
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .timeline-event.right::before {
+            left: -8px;
+            right: auto;
+        }
+
+        .testimonial {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial h3 {
+            margin-top: 0;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            color: #555;
+        }
+
+        .form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form input, .form textarea, .form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form button {
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form button:hover {
+            background: #0056b3;
+        }
+
+        .counter {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .counter span {
+            font-size: 2em;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Портфолио</h1>
+    </header>
+
+    <div class="container">
+        <!-- Обо мне -->
+        <section id="about" class="section">
+            <h2>Обо мне</h2>
+            <p>Привет! Меня зовут Артур, и я веб-разработчик с опытом создания современных и адаптивных веб-сайтов. Уже 2 года занимаюсь разработкой сайтов и увлекаюсь технологиями. В данный момент учусь на 3 курсе по специальности "Информационные технологии".</p>
+        </section>
+
+        <!-- Навыки -->
+        <section id="skills" class="section">
+            <h2>Мои навыки</h2>
+            <div class="skills">
+                <span class="skill">HTML</span>
+                <span class="skill">CSS</span>
+                <span class="skill">JavaScript</span>
+                <span class="skill">Django</span>
+                <span class="skill">Python</span>
+                <span class="skill">Bootstrap</span>
+                <span class="skill">Git</span>
+            </div>
+        </section>
+
+        <!-- Проекты -->
+        <section id="projects" class="section">
+            <h2>Мои проекты</h2>
+            <div class="projects">
+                <div class="project">
+                    <img src="img/unitex.jpg" alt="Проект 1">
+                    <h3>Unitex</h3>
+                    <p>Сайт для детской IT школы</p>
+                    <a href="https://delewer.pythonanywhere.com/">Перейти на сайт</a>
+                </div>
+                <div class="project">
+                    <img src="img/pizza.jpg" alt="Проект 2">
+                    <h3>La Bella Italia</h3>
+                    <p>Простой лэндинг для ресторана</p>
+                    <a href="https://arturti225.github.io/italy/">Перейти на сайт</a>
+                </div>
+                <div class="project">
+                    <img src="img/photo_2025-01-23_18-58-50.jpg" alt="Проект 2">
+                    <h3>Vicolemn</h3>
+                    <p>Сайт для мебельной компании</p>
+                </div>
+                <div class="project">
+                    <img src="img/textil.jpg" alt="Проект 2">
+                    <h3>Turkish Textile</h3>
+                    <p>Сайт для текстильной компании</p>
+                    <a href="http://ozdilekungheni.tryasp.net/">Перейти на сайт</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Контакты -->
+        <section id="contact" class="section contact">
+            <h2>Контакты</h2>
+            <p>Свяжитесь со мной через социальные сети</p>
+            <a href="mailto:babiiartur47@gmail.com">Написать на email</a>
+            <a href="https://t.me/delewer" target="_blank">Мой Telegram</a>
+        </section>
+    </div>
+
+</body>
+</html>
